@@ -1,0 +1,44 @@
+{
+  "name": "discord.png",
+  "version": "1.0.0",
+  "description": "Convert Discord message objects to images",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MoaufmKlo/discord.png.git"
+  },
+  "keywords": [
+    "discord",
+    "discordapp",
+    "png",
+    "convert",
+    "converter",
+    "image",
+    "images"
+  ],
+  "author": {
+    "email": "hey@moaufmklo.com",
+    "name": "MoaufmKlo",
+    "url": "https://moaufmklo.com"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MoaufmKlo/discord.png/issues"
+  },
+  "homepage": "https://github.com/MoaufmKlo/discord.png#readme",
+  "jest": {
+    "testMatch": [
+      "**/tests/**/*.[jt]s?(x)"
+    ]
+  },
+  "devDependencies": {
+    "jest": "^27.5.1",
+    "standard": "^16.0.4"
+  },
+  "dependencies": {
+    "puppeteer": "^13.5.1"
+  }
+}
