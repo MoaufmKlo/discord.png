@@ -1,6 +1,18 @@
 /* eslint-env browser */
 const puppeteer = require('puppeteer')
 
+/**
+ * @typedef {Object} settings
+ * @property {'dark'|'light'} color
+ * @property {'cozy'|'compact'} display
+ * @property {Number} fontSize
+ */
+
+/**
+ * render a Discord message
+ * @param {*} msg discord message object
+ * @param {settings} settings render settings
+ */
 module.exports.render = async (msg, settings) => {
   const browser = await puppeteer.launch({ args: ['--font-render-hinting=none'] })
   const page = await (await browser).newPage()
