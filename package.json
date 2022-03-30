@@ -4,7 +4,7 @@
   "description": "Convert Discord message objects to images",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "standard --fix && jest"
   },
   "repository": {
     "type": "git",
