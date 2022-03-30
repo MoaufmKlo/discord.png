@@ -2,7 +2,7 @@
 const puppeteer = require('puppeteer')
 
 module.exports.render = async (msg, settings) => {
-  const browser = await puppeteer.launch()
+  const browser = await puppeteer.launch({ args: ['--font-render-hinting=none'] })
   const page = await (await browser).newPage()
 
   await page.setUserAgent('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36')
@@ -15,6 +15,10 @@ module.exports.render = async (msg, settings) => {
   // set settings
   await page.evaluate((settings) => localStorage.setItem('settings', JSON.stringify(settings)), settings)
   await page.reload()
+
+  // add font
+  for (let weight = 300; weight <= 700; weight = weight + 100) await page.addStyleTag({ content: `@font-face { font-family: Whitney; src:local('Whitney'), url('/static/whitney-${weight}.woff2'), url('/static/whitney-${weight}.woff'); font-style: normal; font-weight: ${weight} }` })
+  await page.addStyleTag({ content: 'main, body { font-family: Whitney !important; }' })
 
   // screenshot
   await page.waitForSelector('main > div > div')
